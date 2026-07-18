@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1c1a1f" />
+  <title>Orbita HRM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="branding.css" />
+  <link rel="stylesheet" href="portal.css" />
+  <link rel="stylesheet" href="functional.css" />
+</head>
+<body>
+  <main id="loginView" class="login-view">
+    <section class="login-brand">
+      <div class="brand"><span id="loginBrandMark" class="brand-mark"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="2.6" fill="#fff"/><ellipse cx="12" cy="12" rx="9.4" ry="4.1" stroke="#fff" stroke-width="1.5" transform="rotate(-25 12 12)"/><circle cx="20.1" cy="8.6" r="1.7" fill="#fff"/></svg></span> ORBITA <small>HRM</small></div>
+      <div class="login-copy"><span class="eyebrow">GESTÃO DE PESSOAS</span><h1>O lado humano da sua operação, em um só lugar.</h1><p>Controle jornada, férias, documentos e muito mais com segurança e clareza.</p></div>
+      <div class="orbits"><i></i><i></i><i></i></div>
+    </section>
+    <section class="login-panel">
+      <div class="login-card"><h2>Boas-vindas de volta</h2><p>Acesse o ambiente da sua empresa.</p>
+        <form id="loginForm"><label>E-mail corporativo<input type="email" name="email" placeholder="nome@empresa.com" required></label><label>Senha<input type="password" name="password" placeholder="Sua senha" required></label><button class="primary wide" type="submit">Entrar na plataforma <span>→</span></button></form>
+        <button class="secondary wide" id="ssoLogin" type="button">Entrar com SSO corporativo <span>→</span></button>
+        <div class="demo-note">Use suas credenciais corporativas ou o provedor SSO da empresa.</div>
+      </div>
+    </section>
+  </main>
+
+  <div id="appView" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand"><span id="sidebarBrandMark" class="brand-mark"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="2.6" fill="#fff"/><ellipse cx="12" cy="12" rx="9.4" ry="4.1" stroke="#fff" stroke-width="1.5" transform="rotate(-25 12 12)"/><circle cx="20.1" cy="8.6" r="1.7" fill="#fff"/></svg></span> ORBITA <small>HRM</small></div>
+      <nav>
+        <button class="nav-item active" data-page="dashboard"><span>▦</span> Visão geral</button>
+        <button class="nav-item" data-page="employees"><span>♙</span> Colaboradores</button>
+        <button class="nav-item" data-page="organograma"><span>⛬</span> Organograma</button>
+        <button class="nav-item" data-page="requests"><span>✓</span> Aprovações <b id="requestBadge">0</b></button>
+        <button class="nav-item" data-page="time"><span>◷</span> Jornada & ponto</button>
+        <button class="nav-item" data-page="payroll"><span>◇</span> Folha de pagamento</button>
+        <button class="nav-item" data-page="documents"><span>▤</span> Documentos</button>
+        <button class="nav-item hidden admin-nav" data-page="admin"><span>⚙</span> Administração</button>
+      </nav>
+      <div class="sidebar-footer"><button class="nav-item" id="themeToggle"><span>◐</span> Alternar tema</button><button class="nav-item" id="logout"><span>↪</span> Sair</button></div>
+    </aside>
+    <section class="main-content">
+      <header><button class="menu-button" id="menuButton">☰</button><div class="crumb"><span id="pageKicker">PAINEL</span><h1 id="pageTitle">Visão geral</h1></div><div class="header-actions"><button class="icon-btn">⌕</button><button class="icon-btn notification">♧<i></i></button><div class="avatar">AD</div><div class="profile"><strong>André David</strong><span>Administrador</span></div></div></header>
+      <div id="pageContent"></div>
+    </section>
+  </div>
+  <div id="modalRoot"></div>
+  <script src="app.js"></script>
+  <script src="api.js"></script>
+  <script src="employees.js"></script>
+  <script src="functional.js"></script>
+  <script src="fixes.js"></script>
+  <script src="portal.js"></script>
+</body>
+</html>

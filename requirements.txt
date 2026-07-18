@@ -1,0 +1,2 @@
+# O runtime do Orbita HRM usa apenas a biblioteca padrão do Python (3.11+).
+# Nenhuma dependência externa é necessária para rodar o servidor ou os testes.

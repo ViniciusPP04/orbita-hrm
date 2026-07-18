@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+orbita_hrm.db
+.secret_key
+.git/
+tests/
