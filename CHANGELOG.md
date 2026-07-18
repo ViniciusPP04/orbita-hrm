@@ -6,6 +6,7 @@ Todas as mudanças relevantes deste projeto serão registradas aqui.
 
 ### Fixed
 
+- O servidor fazia bind fixo em `127.0.0.1`, o que funciona rodando local mas deixa o container Docker de pé sem nunca ficar acessível via `-p` (a porta publicada do host não alcança um processo escutando só no loopback do container). Descoberto testando de verdade o `docker build`/`docker run` documentado no README, não só revisando o Dockerfile. Corrigido com a variável `ORBITA_HRM_HOST` (padrão `127.0.0.1`, preservando o comportamento local existente); o Dockerfile agora define `ORBITA_HRM_HOST=0.0.0.0` para o container.
 - Tokens de acesso emitidos para o mesmo usuário dentro do mesmo segundo eram byte-a-byte idênticos (o payload do JWT não tinha nenhum identificador único, só `sub`/`email`/`role`/`iat`/`exp`). Isso podia fazer o logout de uma sessão revogar, por coincidência, um token diferente emitido no mesmo segundo — reproduzido de forma intermitente em CI (runners mais rápidos aumentam a chance de duas emissões caírem no mesmo segundo). Corrigido adicionando um `jti` (identificador aleatório) único a cada token emitido.
 
 ### Changed (rebranding)
