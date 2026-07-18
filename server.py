@@ -215,7 +215,7 @@ def compute_time_bank(conn, user_id: str) -> str:
 
 def issue_token(user: dict) -> str:
     header = b64(json.dumps({"alg": "HS256", "typ": "JWT"}, separators=(",", ":")).encode())
-    payload = b64(json.dumps({"sub": user["id"], "email": user["email"], "role": user["role"], "iat": int(time.time()), "exp": int(time.time()) + 3600}, separators=(",", ":")).encode())
+    payload = b64(json.dumps({"sub": user["id"], "email": user["email"], "role": user["role"], "iat": int(time.time()), "exp": int(time.time()) + 3600, "jti": uuid.uuid4().hex}, separators=(",", ":")).encode())
     signature = b64(hmac.new(SECRET, f"{header}.{payload}".encode(), hashlib.sha256).digest())
     return f"{header}.{payload}.{signature}"
 
