@@ -7,6 +7,7 @@ import hashlib
 import hmac
 import io
 import json
+import os
 import re
 import threading
 import time
@@ -980,5 +981,6 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print("Orbita HRM local em http://localhost:4173")
-    ThreadingHTTPServer(("127.0.0.1", 4173), Handler).serve_forever()
+    host = os.environ.get("ORBITA_HRM_HOST", "127.0.0.1")
+    print(f"Orbita HRM local em http://localhost:4173 (bind: {host})")
+    ThreadingHTTPServer((host, 4173), Handler).serve_forever()
