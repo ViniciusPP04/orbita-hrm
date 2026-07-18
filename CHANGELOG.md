@@ -4,6 +4,10 @@ Todas as mudanças relevantes deste projeto serão registradas aqui.
 
 ## [Unreleased]
 
+### Fixed
+
+- Tokens de acesso emitidos para o mesmo usuário dentro do mesmo segundo eram byte-a-byte idênticos (o payload do JWT não tinha nenhum identificador único, só `sub`/`email`/`role`/`iat`/`exp`). Isso podia fazer o logout de uma sessão revogar, por coincidência, um token diferente emitido no mesmo segundo — reproduzido de forma intermitente em CI (runners mais rápidos aumentam a chance de duas emissões caírem no mesmo segundo). Corrigido adicionando um `jti` (identificador aleatório) único a cada token emitido.
+
 ### Changed (rebranding)
 
 - Nova identidade visual do produto ("Orbita HRM", fornecedor Orbita): paleta grafite + âmbar (era navy + azul) e novo logo — um ícone de órbita (ponto central com anel elíptico e satélite) em SVG inline, substituindo a marca de letra única. Renomeados também: banco de dados (`orbita_hrm.db`), variável de ambiente do segredo (`ORBITA_HRM_SECRET`), domínio dos e-mails de demonstração (`@orbita.com`) e as chaves de `localStorage` (prefixo `orbita*`). Sem mudança de comportamento — é só identidade.
