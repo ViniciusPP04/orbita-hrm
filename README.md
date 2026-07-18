@@ -68,6 +68,10 @@ O volume mantém `orbita_hrm.db` entre execuções do container.
 
 Cálculos trabalhistas reais (CLT, INSS, IRRF) e integrações de identidade com um provedor real permanecem como próximos incrementos — fora do escopo deste MVP.
 
+## Contribuindo
+
+Veja [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Segurança e elegibilidade
 
 Consulte [SECURITY.md](SECURITY.md), [o banco de advisories](docs/SECURITY-ADVISORIES.md) e [a aderência ao checklist CVE](docs/CVE-ELIGIBILITY.md). O ambiente é exclusivamente local e não deve receber dados pessoais reais.
