@@ -1,5 +1,10 @@
 # Orbita HRM — MVP local
 
+[![CI](https://github.com/ViniciusPP04/orbita-hrm/actions/workflows/ci.yml/badge.svg)](https://github.com/ViniciusPP04/orbita-hrm/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/ViniciusPP04/orbita-hrm/actions/workflows/codeql.yml/badge.svg)](https://github.com/ViniciusPP04/orbita-hrm/actions/workflows/codeql.yml)
+[![Release](https://img.shields.io/github/v/release/ViniciusPP04/orbita-hrm)](https://github.com/ViniciusPP04/orbita-hrm/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Protótipo funcional de uma plataforma de gestão de RH, com API local persistida em SQLite e sem dependências externas de runtime.
 
 Para entender a arquitetura, o modelo de dados e os principais fluxos da aplicação, veja [docs/COMO-FUNCIONA.md](docs/COMO-FUNCIONA.md).
